@@ -1,0 +1,44 @@
+{
+  "name": "telegrambot",
+  "version": "1.0.0",
+  "description": "A random Telegram Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --ci",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManuelJNunez/TelegramBot.git"
+  },
+  "author": "mjnunez",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ManuelJNunez/TelegramBot/issues"
+  },
+  "homepage": "https://github.com/ManuelJNunez/TelegramBot#readme",
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-jest": "^24.1.5",
+    "jest": "^26.6.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "roots": [
+      "tests"
+    ],
+    "testRegex": ".*\\.spec.js$",
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node"
+  }
+}
