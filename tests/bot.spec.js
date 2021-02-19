@@ -23,8 +23,9 @@ describe('Bot testing', () => {
 
     const spyStart = jest.spyOn(commands, 'startCommand')
     spyStart.mockReturnValueOnce({
-      message: text,
-      chatid: chatid
+      text,
+      chat_id: chatid,
+      method: 'sendMessage'
     })
 
     const event = {
@@ -56,8 +57,9 @@ describe('Bot testing', () => {
 
     const spyReply = jest.spyOn(commands, 'toxicidadReply')
     spyReply.mockReturnValueOnce({
-      message: text,
-      chatid: chatid
+      text,
+      chat_id: chatid,
+      method: 'sendMessage'
     })
 
     const event = {
@@ -89,8 +91,9 @@ describe('Bot testing', () => {
 
     const spyReply = jest.spyOn(commands, 'defaultReply')
     spyReply.mockReturnValueOnce({
-      message: text,
-      chatid: -1
+      text,
+      chat_id: -1,
+      method: 'sendMessage'
     })
 
     const event = {
@@ -122,8 +125,9 @@ describe('Bot testing', () => {
 
     const spyReply = jest.spyOn(commands, 'defaultReply')
     spyReply.mockReturnValueOnce({
-      message: text,
-      chatid: -1
+      text,
+      chat_id: -1,
+      method: 'sendMessage'
     })
 
     const event = {
