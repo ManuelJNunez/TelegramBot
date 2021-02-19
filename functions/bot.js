@@ -4,8 +4,13 @@ exports.handler = async (event, context) => {
   if (event.body !== '') {
     const body = JSON.parse(event.body)
     const message = body.message
-    const text = message.text
-    let reply
+    let text, reply
+
+    if ('text' in message) {
+      text = message.text
+    } else {
+      text = ''
+    }
 
     switch (true) {
       case /\/start/.test(text):
