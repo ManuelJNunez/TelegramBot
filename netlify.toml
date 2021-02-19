@@ -1,0 +1,9 @@
+[build]
+  publish = "."
+  functions = "functions"
+
+
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/bot"
+  status = 200
