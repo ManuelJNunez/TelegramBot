@@ -115,4 +115,36 @@ describe('Bot testing', () => {
       'Content-Type': 'application/json'
     })
   })
+
+  it('should retrieve the returned value of defaultReply because there is no text', async () => {
+    const text = 'Invalid text'
+    const chatid = 1234
+
+    const spyReply = jest.spyOn(commands, 'defaultReply')
+    spyReply.mockReturnValueOnce({
+      message: text,
+      chatid: -1
+    })
+
+    const event = {
+      body: JSON.stringify({
+        message: {
+          chat: {
+            id: chatid
+          }
+        }
+      })
+    }
+    const context = {}
+
+    const result = await handler(event, context)
+
+    expect(JSON.parse(result.body).text).toEqual(text)
+    expect(JSON.parse(result.body).chat_id).toEqual(-1)
+    expect(JSON.parse(result.body).method).toEqual('sendMessage')
+    expect(result.statusCode).toEqual(200)
+    expect(result.headers).toEqual({
+      'Content-Type': 'application/json'
+    })
+  })
 })
