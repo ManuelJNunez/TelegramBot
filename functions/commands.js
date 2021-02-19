@@ -3,8 +3,6 @@ const startCommand = (received) => {
   const message = 'Bienvenido a HalfonsoBot.'
   const chatid = received.chat.id
 
-  console.log('Hola :D')
-
   return { message, chatid }
 }
 
