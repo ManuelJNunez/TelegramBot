@@ -31,11 +31,7 @@ exports.handler = async (event, context) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        text: reply.message,
-        method: 'sendMessage',
-        chat_id: reply.chatid
-      })
+      body: JSON.stringify(reply)
     }
   } else {
     return {
