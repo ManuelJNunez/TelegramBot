@@ -6,7 +6,7 @@ exports.handler = async (event, context) => {
     const message = body.message
     let text, reply
 
-    if ('text' in message) {
+    if (message != null && 'text' in message) {
       text = message.text
     } else {
       text = ''
