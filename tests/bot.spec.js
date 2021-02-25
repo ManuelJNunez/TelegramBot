@@ -85,6 +85,40 @@ describe('Bot testing', () => {
     })
   })
 
+  it('should retrieve the returned value of gordoReply', async () => {
+    const text = 'me llamas gordo'
+    const chatid = 1234
+
+    const spyReply = jest.spyOn(commands, 'gordoReply')
+    spyReply.mockReturnValueOnce({
+      text,
+      chat_id: chatid,
+      method: 'sendMessage'
+    })
+
+    const event = {
+      body: JSON.stringify({
+        message: {
+          chat: {
+            id: chatid
+          },
+          text: 'Se va a liar algo gordo'
+        }
+      })
+    }
+    const context = {}
+
+    const result = await handler(event, context)
+
+    expect(JSON.parse(result.body).text).toEqual(text)
+    expect(JSON.parse(result.body).chat_id).toEqual(chatid)
+    expect(JSON.parse(result.body).method).toEqual('sendMessage')
+    expect(result.statusCode).toEqual(200)
+    expect(result.headers).toEqual({
+      'Content-Type': 'application/json'
+    })
+  })
+
   it('should retrieve the returned value of defaultReply', async () => {
     const text = 'Invalid text'
     const chatid = 1234
