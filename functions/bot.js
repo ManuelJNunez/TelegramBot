@@ -26,7 +26,7 @@ exports.handler = async (event, context) => {
         break
 
       case /\s*no[\s\S].*juego\s*/.test(text.toLowerCase()):
-        reply = commands.xocasGameReply(message)
+        reply = commands.xokasGameReply(message)
         break
 
       default:
