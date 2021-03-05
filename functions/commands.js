@@ -31,7 +31,7 @@ const gordoReply = (received) => {
   }
 }
 
-const xocasGameReply = (received) => {
+const xokasGameReply = (received) => {
   const message = 'Esto no es un juego, ¿eh?. ¡Si lo piensas así es que eres un No Name!'
   const chatid = received.chat.id
 
@@ -57,6 +57,6 @@ module.exports = {
   startCommand,
   toxicidadReply,
   gordoReply,
-  xocasGameReply,
+  xokasGameReply,
   defaultReply
 }

@@ -119,11 +119,11 @@ describe('Bot testing', () => {
     })
   })
 
-  it('should retrieve the returned value of xocasGameReply', async () => {
+  it('should retrieve the returned value of xokasGameReply', async () => {
     const text = 'no es un juego'
     const chatid = 1234
 
-    const spyReply = jest.spyOn(commands, 'xocasGameReply')
+    const spyReply = jest.spyOn(commands, 'xokasGameReply')
     spyReply.mockReturnValueOnce({
       text,
       chat_id: chatid,
