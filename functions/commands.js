@@ -20,6 +20,28 @@ const toxicidadReply = (received) => {
   }
 }
 
+const gordoReply = (received) => {
+  const message = 'Me llamas gordo, te doy la mano 🎵🎶'
+  const chatid = received.chat.id
+
+  return {
+    text: message,
+    chat_id: chatid,
+    method: 'sendMessage'
+  }
+}
+
+const xocasGameReply = (received) => {
+  const message = 'Esto no es un juego, ¿eh?. ¡Si lo piensas así es que eres un No Name!'
+  const chatid = received.chat.id
+
+  return {
+    text: message,
+    chat_id: chatid,
+    method: 'sendMessage'
+  }
+}
+
 const defaultReply = (received) => {
   const message = 'hola'
   const chatid = -1
@@ -34,5 +56,7 @@ const defaultReply = (received) => {
 module.exports = {
   startCommand,
   toxicidadReply,
+  gordoReply,
+  xocasGameReply,
   defaultReply
 }
