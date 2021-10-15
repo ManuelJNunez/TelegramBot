@@ -21,6 +21,18 @@ exports.handler = async (event, context) => {
         reply = commands.toxicidadReply(message)
         break
 
+        case /\s*gordo\s*/.test(text.toLowerCase()):
+        reply = commands.toxicidadReply(message)
+        break
+
+        case /\s*juego\s*/.test(text.toLowerCase()):
+        reply = commands.toxicidadReply(message)
+        break
+
+        case /\s*perro\s*/.test(text.toLowerCase()):
+        reply = commands.toxicidadReply(message)
+        break
+
       default:
         reply = commands.defaultReply(message)
         break
