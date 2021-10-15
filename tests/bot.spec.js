@@ -119,6 +119,108 @@ describe('Bot testing', () => {
     })
   })
 
+  it('should retrieve the returned value of gordoReply', async () => {
+    const text = 'me llamas gordo'
+    const chatid = 1234
+
+    const spyReply = jest.spyOn(commands, 'gordoReply')
+    spyReply.mockReturnValueOnce({
+      text,
+      chat_id: chatid,
+      method: 'sendMessage'
+    })
+
+    const event = {
+      body: JSON.stringify({
+        message: {
+          chat: {
+            id: chatid
+          },
+          text: 'Creo que estoy un poco gordo'
+        }
+      })
+    }
+    const context = {}
+
+    const result = await handler(event, context)
+
+    expect(JSON.parse(result.body).text).toEqual(text)
+    expect(JSON.parse(result.body).chat_id).toEqual(chatid)
+    expect(JSON.parse(result.body).method).toEqual('sendMessage')
+    expect(result.statusCode).toEqual(200)
+    expect(result.headers).toEqual({
+      'Content-Type': 'application/json'
+    })
+  })
+
+  it('should retrieve the returned value of xokasReply', async () => {
+    const text = 'no es un juego'
+    const chatid = 1234
+
+    const spyReply = jest.spyOn(commands, 'xokasReply')
+    spyReply.mockReturnValueOnce({
+      text,
+      chat_id: chatid,
+      method: 'sendMessage'
+    })
+
+    const event = {
+      body: JSON.stringify({
+        message: {
+          chat: {
+            id: chatid
+          },
+          text: 'Podemos probar este juego'
+        }
+      })
+    }
+    const context = {}
+
+    const result = await handler(event, context)
+
+    expect(JSON.parse(result.body).text).toEqual(text)
+    expect(JSON.parse(result.body).chat_id).toEqual(chatid)
+    expect(JSON.parse(result.body).method).toEqual('sendMessage')
+    expect(result.statusCode).toEqual(200)
+    expect(result.headers).toEqual({
+      'Content-Type': 'application/json'
+    })
+  })
+
+  it('should retrieve the returned value of perroReply', async () => {
+    const text = 'no es un juego'
+    const chatid = 1234
+
+    const spyReply = jest.spyOn(commands, 'perroReply')
+    spyReply.mockReturnValueOnce({
+      text,
+      chat_id: chatid,
+      method: 'sendMessage'
+    })
+
+    const event = {
+      body: JSON.stringify({
+        message: {
+          chat: {
+            id: chatid
+          },
+          text: 'Voy a sacar a pasear el perro'
+        }
+      })
+    }
+    const context = {}
+
+    const result = await handler(event, context)
+
+    expect(JSON.parse(result.body).text).toEqual(text)
+    expect(JSON.parse(result.body).chat_id).toEqual(chatid)
+    expect(JSON.parse(result.body).method).toEqual('sendMessage')
+    expect(result.statusCode).toEqual(200)
+    expect(result.headers).toEqual({
+      'Content-Type': 'application/json'
+    })
+  })
+
   it('should retrieve the returned value of defaultReply because there is no text', async () => {
     const text = 'Invalid text'
     const chatid = 1234
