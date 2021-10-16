@@ -22,15 +22,15 @@ exports.handler = async (event, context) => {
         break
 
       case /\s*gordo\s*/.test(text.toLowerCase()):
-        reply = commands.toxicidadReply(message)
+        reply = commands.gordoReply(message)
         break
 
       case /\s*juego\s*/.test(text.toLowerCase()):
-        reply = commands.toxicidadReply(message)
+        reply = commands.xokasReply(message)
         break
 
       case /\s*perro\s*/.test(text.toLowerCase()):
-        reply = commands.toxicidadReply(message)
+        reply = commands.perroReply(message)
         break
 
       default:
